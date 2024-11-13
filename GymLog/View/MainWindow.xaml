@@ -1,0 +1,28 @@
+﻿<Window x:Class="GymLog.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GymLog"
+        mc:Ignorable="d"
+        xmlns:View="clr-namespace:GymLog.View" xmlns:model="clr-namespace:GymLog.Model"
+        Title="MainWindow" Height="251" Width="396">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Dodawanie">
+                <View:AddLog Loaded="AddLog_Loaded">
+                    <View:AddLog.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black"/>
+                            <GradientStop Color="Red" Offset="1"/>
+                        </LinearGradientBrush>
+                    </View:AddLog.Background>
+                </View:AddLog>
+            </TabItem>
+            <TabItem Header="Sprawdzanie">
+                <View:SearchLog/>
+            </TabItem>
+        </TabControl>
+        <TextBox DataContext="{Binding LoggerInstance}" HorizontalAlignment="Left" Margin="169,32,0,0" TextWrapping="Wrap" Text="{Binding Logs}" VerticalAlignment="Top" Width="204" Height="172" Background="Black" Foreground="White" SelectionBrush="White" FontSize="10"/>
+    </Grid>
+</Window>
